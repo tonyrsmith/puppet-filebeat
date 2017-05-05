@@ -33,6 +33,7 @@
 # @param download_url [String] The URL of the zip file that should be downloaded to install filebeat (windows only)
 # @param install_dir [String] Where filebeat should be installed (windows only)
 # @param tmp_dir [String] Where filebeat should be temporarily downloaded to so it can be installed (windows only)
+# @param source_zip [String] Full path of zip file to use for installing (windows only)
 # @param use_generic_template [Boolean] Use a more generic version of the configuration template. The generic template is more
 #  future proof (if types are correct), but looks very different than the example file (default: false)
 # @param shutdown_timeout [String] How long filebeat waits on shutdown for the publisher to finish sending events
@@ -70,6 +71,7 @@ class filebeat (
   $download_url         = $filebeat::params::download_url,
   $install_dir          = $filebeat::params::install_dir,
   $tmp_dir              = $filebeat::params::tmp_dir,
+  $source_zip           = undef,
   #### v5 only ####
   $use_generic_template = $filebeat::params::use_generic_template,
   $shutdown_timeout     = $filebeat::params::shutdown_timeout,
